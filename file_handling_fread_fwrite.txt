@@ -1,0 +1,59 @@
+//program-for fread,fwrite function as using structure
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct student
+{
+    int roll_no;
+    char name[10];
+}stud[5],stud1[5];
+int main()
+{
+    int i;
+    FILE *fp;
+    fp=fopen("student.txt","w");
+    printf("\nenter the details of student in terms of roll_no,name\n");
+    for(i=0;i<5;i++)
+    {
+        printf("\enter details:");
+        scanf("%d",&stud[i].roll_no);
+        scanf("%s",stud[i].name);
+    }
+    printf("\nsavings:\n");
+    fwrite(&stud,sizeof(stud[0]),5,fp);
+    printf("\ndata saved:");
+    fclose(fp);
+    fp=fopen("student.txt","r");
+    fread(&stud1,sizeof(stud1[0]),5,fp);
+    printf("\n\nprinting values");
+    for(i=0;i<5;i++)
+    {
+        printf("\n%d\t%s",stud1[i].roll_no,stud1[i].name);
+    }
+    return 0;
+}
+****************************OUTPUT********************
+
+enter the details of student in terms of roll_no,name
+nter details:1
+puja
+nter details:2
+maya
+nter details:3
+pritam
+nter details:4
+ravi
+nter details:5
+susha
+
+savings:
+
+data saved:
+
+printing values
+1	puja
+2	maya
+3	pritam
+4	ravi
+5	susha
+

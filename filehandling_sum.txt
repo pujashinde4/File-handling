@@ -1,0 +1,32 @@
+//import maya.txt
+#include <stdio.h>
+
+int main()
+{
+    int i, sum=0;
+    FILE *fp;
+    fp=fopen("int_data.txt","w");
+    for(i=10;i<15;i++)
+    {
+        fprintf(fp,"%d\n",i);
+    }
+    fclose(fp);
+    fp=fopen("int_data.txt","r");
+    while(fscanf(fp,"%d\n",&i)!=EOF)
+    {
+    sum=sum+i;
+    printf("%d\n",i);
+    }
+    fclose(fp);
+    printf("\nsum is:%d",sum);
+    return 0;
+}
+****************OUTPUT********************
+10
+11
+12
+13
+14
+
+sum is:60
+

@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *fp;
+    char filename[10];
+    char c;
+    printf("enter the file you want to read");
+    scanf("%s",filename);
+    if(fp==NULL)
+    {
+        printf("sorry.....the file is not exist");
+    }
+    fp=fopen(filename,"r");
+    while((c=getc(fp))!=EOF)
+    printf("%c",c);
+   fclose(fp);
+  // free(fp);
+   return 0;
+}
+//**********STUDENT.TXT***********//
+Name: puja 
+Marks=50 
+
+Name: maya 
+Marks=60 
+//***********OUTPUT****************//
+enter the file you want to readstudent.txt
+
+Name: puja 
+Marks=50 
+
+Name: maya 
+Marks=60 
+*** stack smashing detected ***: ./a.out terminated
+Aborted (core dumped)
+
+

@@ -1,0 +1,34 @@
+//program-random access of contents using fseek and ftell
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    FILE *fp;
+    char arr[40];
+    fp=fopen("new.txt","w+");
+    fputs("welcome to the world of file",fp);
+    fseek(fp,1,SEEK_SET);
+    printf("\nfile pointer position is:%d\n",ftell(fp));
+    while(fgets(arr,39,fp)!=NULL)
+    {
+        printf("\n%s\n",arr);
+    }
+    printf("\nfile pointer position is:%d\n",ftell(fp));
+    rewind(fp);
+    printf("\nfile pointer position is:%d\n",ftell(fp));
+    fclose(fp);
+}
+*************************OUTPUT****************
+new.txt
+welcome to the world of file
+
+file pointer position is:1
+
+elcome to the world of file
+
+file pointer position is:28
+
+file pointer position is:0
+
+
